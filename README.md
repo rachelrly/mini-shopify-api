@@ -1,8 +1,16 @@
 # Mini Shopify Api
 
-This is a Node.js/Express app that returns formatted, paginated data from the Shopify API
+This repo contains an API with one endpoint that returns transformed data from the Shopify REST API
+
+## Tech Stack
+
+- Node.js
+- Express.js
+- [node-fetch](https://www.npmjs.com/package/node-fetch)
+
 
 ## Prompt
+
 Write an API endpoint that does the following: 
 1. Fetches all Products from a Shopify store (we will provide the information and credentials to call the Shopify API below).
 2. Transform the Shopify Products data into the JSON schema we define below:
@@ -27,3 +35,11 @@ Write an API endpoint that does the following:
 	// ... other products
 ]
 ```
+
+## How to use
+
+### GET /api/shopify
+
+To test this endpoint, you will need an `.env` containing your `SHOPIFY_ACCESS_TOKEN` and `SHOPIFY_URL`
+
+Simply make a `GET` request to `http://localhost:8553/api/shopify`, and the endpoint will return the first 20 items from the Shopify API transformed with the above schema
