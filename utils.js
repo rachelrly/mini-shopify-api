@@ -20,6 +20,4 @@ function modifyShopifyData(products){
     return products.map(({id, title}) => ({platform_id: id, name: title}))
 }
 
-
-
 module.exports = { getAllShopifyData }
