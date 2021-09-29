@@ -8,6 +8,14 @@ This repo contains an API with one endpoint that returns transformed data from t
 - Express.js
 - [node-fetch](https://www.npmjs.com/package/node-fetch)
 
+## How to use
+
+### GET /api/shopify
+
+To test this endpoint, you will need an `.env` containing your `SHOPIFY_ACCESS_TOKEN` and `SHOPIFY_URL`
+
+Simply make a `GET` request to `http://localhost:8553/api/shopify`, and the endpoint will return the first 20 items from the Shopify API transformed with the above schema
+
 
 ## Prompt
 
@@ -36,10 +44,3 @@ Write an API endpoint that does the following:
 ]
 ```
 
-## How to use
-
-### GET /api/shopify
-
-To test this endpoint, you will need an `.env` containing your `SHOPIFY_ACCESS_TOKEN` and `SHOPIFY_URL`
-
-Simply make a `GET` request to `http://localhost:8553/api/shopify`, and the endpoint will return the first 20 items from the Shopify API transformed with the above schema
