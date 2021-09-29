@@ -1,5 +1,7 @@
 require('dotenv').config()
 const express = require('express')
+
+const {PORT} = require('./config')
 const shopifyRouter = require('./shopifyRouter')
 
 const app = express()
@@ -11,7 +13,6 @@ app.get('/', async (req, res) => {
 
 app.use('/api/shopify', shopifyRouter)
 
-const PORT = process.env.PORT
 app.listen(PORT, () => console.log(`Server listening at http://localhost:${PORT}`))
 
 module.exports = app
