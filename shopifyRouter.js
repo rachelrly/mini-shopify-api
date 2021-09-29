@@ -1,5 +1,5 @@
 const express = require('express')
-
+const {getShopifyData} = require('./utils')
 const shopifyRouter = express.Router()
 
 shopifyRouter
