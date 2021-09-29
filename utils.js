@@ -1,7 +1,7 @@
 const fetch = require('node-fetch')
 
-function getShopifyData(){
-    const url = `${process.env.SHOPIFY_URL}/admin/api/2021-07/products.json`
+function getAllShopifyData(){
+    const url = `${process.env.SHOPIFY_URL}/admin/api/2021-07/products.json?feilds=id%2Ctitle?limit=20`
     return fetch(url, {
         method: 'get',
         headers: {
@@ -10,9 +10,16 @@ function getShopifyData(){
         },
     })
     .then(res => res.json())
+    .then(res => modifyShopifyData(res.products))
     .catch(err => {
-        throw new Error(`Could not fetch stuff: ${err?.message || err}`)
+        throw new Error(err?.message || err)
     })
 }
 
-module.exports = { getShopifyData }
+function modifyShopifyData(products){
+    return products.map(({id, title}) => ({platform_id: id, name: title}))
+}
+
+
+
+module.exports = { getAllShopifyData }

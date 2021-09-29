@@ -1,15 +1,16 @@
 const express = require('express')
-const {getShopifyData} = require('./utils')
+
+const {getAllShopifyData} = require('./utils')
+
 const shopifyRouter = express.Router()
 
 shopifyRouter
     .post('/', async (req, res, next) => {
         try {
-            const {offset=0} = req.body
-            const data = await getShopifyData(offset)
+            const data = await getAllShopifyData()
             return res
             .status(200)
-            .json([])
+            .json(data)
         } catch (error) {
             const errorMessage = 'Could not fetch data from Shopify API: ' + (error?.message || error)
             return res
